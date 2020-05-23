@@ -1,23 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Bus from './Utils/Bus'
+import Flash from './Flash/index.js';
+
+import Home from './home';
 
 function App() {
+
+  window.flash = (message, type="success") => Bus.emit('flash', ({message, type}));  
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Home />
+        <Flash />       
       </header>
     </div>
   );
